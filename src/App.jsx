@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import './App.css'
-import Sidebar from './components/Sidebar'
+import Sidebar from './components/Sidebar/Sidebar.jsx'
 
 
 
@@ -11,17 +11,29 @@ function App() {
     phone: '',
     address: '',
   })
-  const [education, setEducation] = useState({})
-  const [experience, setExperience] = useState({})
+  const [education, setEducation] = useState({
+    school: '',
+    degree: '',
+    startDate: '',
+    endDate: '',
+    location: ''
+  })
+  const [experience, setExperience] = useState({
+
+  })
 
   const handleFieldChange = (target, e) =>{
     setDetails({...details, [target]: e.target.value})
     console.log(details)
   }
 
+  const handleEducationChange = (target, e) => {
+    setEducation({...education, [target]: e.target.value})
+    console.log(education)
+  }
+
   const handleExperienceChange = () => {}
 
-  const handleEducationChange = () => {}
 
   return (
     <>
