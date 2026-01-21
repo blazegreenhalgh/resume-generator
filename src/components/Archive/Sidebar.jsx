@@ -1,6 +1,6 @@
 import React from 'react'
 import { useState } from 'react'
-import Dropdown from './Dropdown.jsx'
+import Dropdown from '../Sidebar/Dropdown.jsx'
 import Field from './FormField.jsx'
 import Container from './Container'
 
