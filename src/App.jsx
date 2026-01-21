@@ -3,7 +3,8 @@ import "./App.css";
 import Sidebar from "./components/Archive/Sidebar2";
 import Container from "./components/Container";
 import PersonalDetailsSection from "./components/PersonalDetailsSection";
-import EducationSection from "./components/EducationSection";
+import RepeatableForm from "./components/RepeatableForm";
+import RepeatableSection from "./components/RepeatableSection";
 
 function App() {
   const [resume, setResume] = useState({
@@ -13,7 +14,7 @@ function App() {
       phone: "",
       address: "",
     },
-    experience: [
+    experiences: [
       {
         id: "",
         company: "",
@@ -40,11 +41,9 @@ function App() {
       ...prev,
       [path]: { ...prev[path], [objectKey]: value },
     }));
-
-    console.log(resume);
   };
 
-  const updateEducation = (path, index, objectKey, value) => {
+  const updateRepeatableForm = (path, index, objectKey, value) => {
     setResume((prev) => ({
       ...prev,
       [path]: prev[path].map((item, i) => {
@@ -65,9 +64,18 @@ function App() {
           />
         </Container>
         <Container>
-          <EducationSection
-            educations={resume.educations}
-            updateEducation={updateEducation}
+          <RepeatableSection
+            title="Experience"
+            array={resume.experiences}
+            arrayPath="experiences"
+            updateRepeatableForm={updateRepeatableForm}
+          />
+        </Container>
+        <Container>
+          <RepeatableForm
+            array={resume.experiences}
+            arrayPath="experiences"
+            updateRepeatableForm={updateRepeatableForm}
           />
         </Container>
       </div>

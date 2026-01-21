@@ -1,20 +1,18 @@
 import React from "react";
 import FormField from "./FormField";
 
-function EducationSection({ educations, updateEducation }) {
+function RepeatableForm({ array, arrayPath = "", updateRepeatableForm }) {
   return (
     <>
-      <h2>Education</h2>
-
-      {educations.map((education, index) => (
+      {array.map((object, index) => (
         <React.Fragment key={index}>
-          {Object.keys(education).map((item) => (
+          {Object.keys(object).map((item) => (
             <FormField
               key={item}
               label={item}
-              value={education[item]}
+              value={object[item]}
               onFieldChange={(e) => {
-                updateEducation("educations", index, item, e.target.value);
+                updateRepeatableForm(arrayPath, index, item, e.target.value);
               }}
             />
           ))}
@@ -24,4 +22,4 @@ function EducationSection({ educations, updateEducation }) {
   );
 }
 
-export default EducationSection;
+export default RepeatableForm;
