@@ -1,41 +1,57 @@
 import { useState } from 'react'
 import './App.css'
 import Sidebar from './components/Sidebar'
+import Container from './components/Container'
+import PersonalDetailsSection from './components/PersonalDetailsSection'
 
 
 
 function App() {
-  const [details, setDetails] = useState({
-    name: '',
-    email: '',
-    phone: '',
-    address: '',
+  const [resume, setResume] = useState({
+    personal: { 
+      fullName: '',
+      email: '', 
+      phone: '', 
+      address: '' 
+    },
+    experience: [ 
+      { 
+        id: '', 
+        company: '', 
+        position: '', 
+        startDate: '', 
+        endDate: '', 
+        location: '', 
+        description: ''
+      } 
+    ],
+    education: [ 
+      { 
+        id: '', 
+        school: '', 
+        degree: '', 
+        startDate: '', 
+        endDate: '' 
+      } 
+    ]
   })
-  const [education, setEducation] = useState({})
-  const [experience, setExperience] = useState({})
 
-  const handleFieldChange = (target, e) =>{
-    setDetails({...details, [target]: e.target.value})
-    console.log(details)
+  const updateResume = (path, objectKey, value) => {
+    setResume(prev => ({...prev, [path]: {...prev[path], [objectKey]: value}}))
+    
+    console.log(resume)
   }
 
-  const handleExperienceChange = () => {}
 
-  const handleEducationChange = () => {}
 
   return (
     <>
      <h1 className='bg-red-500'>hello</h1>
-     <Sidebar 
-     details={details} 
-     onFieldChange={handleFieldChange} 
-     education={education}
-     onEducationChange={handleEducationChange}
-     experience={experience}
-     onExperienceChange={handleExperienceChange}
-
-
-     />
+     <div className="sidebar">
+      <Container>
+        <PersonalDetailsSection personal={resume.personal} updateResume={updateResume}/>
+      </Container>
+     </div>
     </>
   )
 }
