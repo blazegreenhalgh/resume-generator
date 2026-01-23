@@ -18,6 +18,11 @@ function App() {
     educations: [],
   });
 
+  const [format, setFormat] = useState({
+    accentColor: "bg-sky-500",
+    backgroundColor: "bg-gray-900",
+  });
+
   const updatePersonal = (path, objectKey, value) => {
     setResume((prev) => ({
       ...prev,
@@ -70,9 +75,8 @@ function App() {
   };
 
   return (
-    <>
-      <h1 className="bg-red-500">hello</h1>
-      <div className="sidebar flex flex-col gap-2">
+    <div className="sidebar-wrapper">
+      <div className="sidebar flex flex-col gap-2 w-full">
         <Container>
           <PersonalDetailsSection
             personal={resume.personal}
@@ -100,7 +104,8 @@ function App() {
           />
         </Container>
       </div>
-    </>
+    </div>
+    <div className="resume-wrapper"></div>
   );
 }
 
