@@ -2,7 +2,7 @@ import React from "react";
 import { useState } from "react";
 import RepeatableForm from "../RepeatableForm";
 
-function Dropdown({ array, arrayPath = "", updateRepeatableForm }) {
+function Dropdown({ object, arrayPath = "", updateRepeatableForm }) {
   const [isToggled, setIsToggled] = useState(false);
   const title = "New Item";
 
@@ -26,7 +26,7 @@ function Dropdown({ array, arrayPath = "", updateRepeatableForm }) {
       {isToggled ? (
         <div className="pb-4 flex flex-col">
           <RepeatableForm
-            array={array}
+            object={object}
             arrayPath={arrayPath}
             updateRepeatableForm={updateRepeatableForm}
           />

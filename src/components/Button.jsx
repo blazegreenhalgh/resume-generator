@@ -11,6 +11,7 @@ function Button({ type, contents = "Button", onClick }) {
   return (
     <button
       className={`${baseClasses} ${typeClasses[type] || typeClasses["neutral"]}`}
+      onClick={onClick}
     >
       {contents}
     </button>

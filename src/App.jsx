@@ -14,17 +14,7 @@ function App() {
       phone: "",
       address: "",
     },
-    experiences: [
-      {
-        id: "",
-        company: "",
-        position: "",
-        startDate: "",
-        endDate: "",
-        location: "",
-        description: "",
-      },
-    ],
+    experiences: [],
     educations: [
       {
         id: "",
@@ -43,7 +33,7 @@ function App() {
     }));
   };
 
-  const updateRepeatableForm = (path, index, objectKey, value) => {
+  const updateRepeatableFormold = (path, index, objectKey, value) => {
     setResume((prev) => ({
       ...prev,
       [path]: prev[path].map((item, i) => {
@@ -51,6 +41,30 @@ function App() {
       }),
     }));
     console.log(resume);
+  };
+
+  const updateRepeatableForm = (path, objectID, objectKey, value) => {
+    const newResume = structuredClone(resume);
+    const object = newResume[path].find((obj) => objectID === obj.id);
+
+    object[objectKey] = value;
+    console.log(resume);
+    setResume(newResume);
+  };
+
+  const addExperience = (path) => {
+    const newResume = structuredClone(resume);
+
+    newResume[path].push({
+      id: crypto.randomUUID(),
+      company: "",
+      position: "",
+      startDate: "",
+      endDate: "",
+      location: "",
+      description: "",
+    });
+    setResume(newResume);
   };
 
   return (
@@ -69,6 +83,7 @@ function App() {
             array={resume.experiences}
             arrayPath="experiences"
             updateRepeatableForm={updateRepeatableForm}
+            addRepeatableForm={addExperience}
           />
         </Container>
         <Container>

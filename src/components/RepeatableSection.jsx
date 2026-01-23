@@ -7,6 +7,7 @@ function RepeatableSection({
   array,
   arrayPath,
   updateRepeatableForm,
+  addRepeatableForm,
 }) {
   return (
     <>
@@ -15,13 +16,22 @@ function RepeatableSection({
         {array.map((object, index) => (
           <Dropdown
             key={index}
-            array={array}
+            object={object}
             arrayPath={arrayPath}
             updateRepeatableForm={updateRepeatableForm}
           />
         ))}
       </div>
-      <Button type="primary" contents={"New " + arrayPath} />
+      <Button
+        type="primary"
+        contents={"New " + arrayPath}
+        onClick={() => addRepeatableForm(arrayPath)}
+      />
+      <Button
+        type="neutral"
+        contents={"Log Resume to Console"}
+        onClick={() => console.log(array)}
+      />
     </>
   );
 }
