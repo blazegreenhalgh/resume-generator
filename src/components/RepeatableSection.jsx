@@ -1,5 +1,6 @@
 import React from "react";
 import Dropdown from "./Sidebar/Dropdown";
+import Button from "./Button";
 
 function RepeatableSection({
   title = "title",
@@ -20,6 +21,7 @@ function RepeatableSection({
           />
         ))}
       </div>
+      <Button type="primary" contents={"New " + arrayPath} />
     </>
   );
 }
