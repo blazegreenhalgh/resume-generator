@@ -1,7 +1,7 @@
 import React from "react";
 import { useState } from "react";
-import RepeatableForm from "../RepeatableForm";
-import Button from "../button";
+import RepeatableForm from "./RepeatableForm";
+import Button from "./button";
 
 function Dropdown({
   object,

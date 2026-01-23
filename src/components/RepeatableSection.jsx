@@ -1,5 +1,5 @@
 import React from "react";
-import Dropdown from "./Sidebar/Dropdown";
+import Dropdown from "./Dropdown";
 import Button from "./Button";
 
 function RepeatableSection({

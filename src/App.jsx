@@ -75,37 +75,41 @@ function App() {
   };
 
   return (
-    <div className="sidebar-wrapper">
-      <div className="sidebar flex flex-col gap-2 w-full">
-        <Container>
-          <PersonalDetailsSection
-            personal={resume.personal}
-            updatePersonal={updatePersonal}
-          />
-        </Container>
-        <Container>
-          <RepeatableSection
-            title="Experience"
-            array={resume.experiences}
-            arrayPath="experiences"
-            updateRepeatableForm={updateRepeatableForm}
-            addRepeatableForm={addExperience}
-            deleteRepeatableForm={deleteRepeatableForm}
-          />
-        </Container>
-        <Container>
-          <RepeatableSection
-            title="Education"
-            array={resume.educations}
-            arrayPath="educations"
-            updateRepeatableForm={updateRepeatableForm}
-            addRepeatableForm={addEducation}
-            deleteRepeatableForm={deleteRepeatableForm}
-          />
-        </Container>
+    <div className="app-wrapper h-full w-full gap-6 grid grid-cols-[1fr_7fr]">
+      <div className="sidebar-wrapper w-full h-full flex items-center">
+        <div className="sidebar flex flex-col gap-2 w-full">
+          <Container>
+            <PersonalDetailsSection
+              personal={resume.personal}
+              updatePersonal={updatePersonal}
+            />
+          </Container>
+          <Container>
+            <RepeatableSection
+              title="Experience"
+              array={resume.experiences}
+              arrayPath="experiences"
+              updateRepeatableForm={updateRepeatableForm}
+              addRepeatableForm={addExperience}
+              deleteRepeatableForm={deleteRepeatableForm}
+            />
+          </Container>
+          <Container>
+            <RepeatableSection
+              title="Education"
+              array={resume.educations}
+              arrayPath="educations"
+              updateRepeatableForm={updateRepeatableForm}
+              addRepeatableForm={addEducation}
+              deleteRepeatableForm={deleteRepeatableForm}
+            />
+          </Container>
+        </div>
+      </div>
+      <div className="resume-wrapper w-full bg-gray-300 h-full">
+        <div className="resume "></div>
       </div>
     </div>
-    <div className="resume-wrapper"></div>
   );
 }
 
