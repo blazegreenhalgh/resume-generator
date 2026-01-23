@@ -13,12 +13,13 @@ function RepeatableSection({
   return (
     <>
       <div className="section-wrapper flex flex-col gap-4">
-        <h2>{title}</h2>
-        <div className="loop-wrapper w-full flex flex-col gap-2">
+        <h2 className="font-bold text-xl">{title}</h2>
+        <div className="loop-wrapper w-full flex flex-col gap-4">
           {array.map((object, index) => {
             return (
               <Dropdown
                 key={index}
+                array={array}
                 object={object}
                 arrayPath={arrayPath}
                 updateRepeatableForm={updateRepeatableForm}
@@ -31,6 +32,7 @@ function RepeatableSection({
           type="primary"
           contents={"New " + arrayPath}
           onClick={() => addRepeatableForm(arrayPath)}
+          classes="w-full"
         />
       </div>
     </>

@@ -3,7 +3,7 @@ import React from "react";
 function Container({ className = "", padding = true, children }) {
   return (
     <div
-      className={`sidebar-container flex flex-col gap-4 bg-white rounded-xl shadow-xl w-full ${padding ? "p-4" : ""} ${className}`}
+      className={`sidebar-container flex flex-col gap-4 bg-white rounded-xl  w-full ${padding ? "p-8" : ""} ${className}`}
     >
       {children}
     </div>

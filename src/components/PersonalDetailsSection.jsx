@@ -4,7 +4,7 @@ import FormField from "./FormField";
 function PersonalDetailsSection({ personal, updatePersonal }) {
   return (
     <>
-      <h2>Personal Details</h2>
+      <h2 className="font-bold text-xl">Personal Details</h2>
       {Object.keys(personal).map((item) => {
         const label = item[0].toUpperCase() + item.slice(1);
         return (

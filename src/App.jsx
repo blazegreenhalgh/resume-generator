@@ -10,17 +10,37 @@ import Resume from "./components/Resume/Resume";
 function App() {
   const [resume, setResume] = useState({
     personal: {
-      fullName: "",
-      email: "",
-      phone: "",
-      address: "",
+      fullName: "Blaze Greenhalgh",
+      email: "hello@blazegreenhalgh.com",
+      phone: "0411 249 777",
+      address: "Perth, AU",
     },
-    experiences: [],
-    educations: [],
+    experiences: [
+      {
+        id: crypto.randomUUID(),
+        company: "SOL STUDIOS",
+        position: "Lead Creative Developer",
+        startDate: "10/05/2024",
+        endDate: "present",
+        description:
+          "Lead the creative development projects at SOL STUDIOS, interacting with clients, managing developers and quoting projects",
+        location: "Remote",
+      },
+    ],
+    educations: [
+      {
+        id: crypto.randomUUID(),
+        school: "North Metro TAFE",
+        degree: "Diploma of Graphic Design",
+        startDate: "11/04/2020",
+        endDate: "15/9/2022",
+        location: "Perth, Western Australia",
+      },
+    ],
   });
 
-  const [format, setFormat] = useState({
-    accentColor: "bg-sky-500",
+  const [formatting, setFormatting] = useState({
+    accentColor: "bg-green-950",
     backgroundColor: "bg-gray-900",
   });
 
@@ -49,8 +69,8 @@ function App() {
       position: "",
       startDate: "",
       endDate: "",
-      location: "",
       description: "",
+      location: "",
     });
     setResume(newResume);
   };
@@ -64,6 +84,7 @@ function App() {
       degree: "",
       startDate: "",
       endDate: "",
+      location: "",
     });
     setResume(newResume);
   };
@@ -76,9 +97,9 @@ function App() {
   };
 
   return (
-    <div className="app-wrapper h-full w-full gap-6 grid grid-cols-[300px_1fr]">
-      <div className="sidebar-wrapper w-full h-full flex items-center overflow-y-auto px-2 no-scrollbar">
-        <div className="sidebar flex flex-col gap-2 w-full">
+    <div className="app-wrapper h-full gap-6 grid grid-cols-[400px_1fr] justify-center items-center w-full ">
+      <div className="sidebar-wrapper w-full h-full flex items-start px-2 max-w-[400px]">
+        <div className="sidebar flex flex-col gap-6 w-full">
           <Container>
             <PersonalDetailsSection
               personal={resume.personal}
@@ -107,8 +128,8 @@ function App() {
           </Container>
         </div>
       </div>
-      <div className="resume-wrapper w-full after:absolute after:-top-1/2 after:h-[200vh] after:w-screen after:-z-50 after:bg-gray-300 h-full">
-        <Resume />
+      <div className="resume-wrapper w-full h-full">
+        <Resume formatting={formatting} resume={resume} />
       </div>
     </div>
   );
