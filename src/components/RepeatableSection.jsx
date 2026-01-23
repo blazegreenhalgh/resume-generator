@@ -16,12 +16,10 @@ function RepeatableSection({
         <h2>{title}</h2>
         <div className="loop-wrapper w-full flex flex-col gap-2">
           {array.map((object, index) => {
-            const { id, ...filteredArray } = object;
-
             return (
               <Dropdown
                 key={index}
-                object={filteredArray}
+                object={object}
                 arrayPath={arrayPath}
                 updateRepeatableForm={updateRepeatableForm}
                 deleteRepeatableForm={deleteRepeatableForm}

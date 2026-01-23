@@ -7,7 +7,7 @@ function RepeatableForm({ object, arrayPath = "", updateRepeatableForm }) {
     <>
       {Object.keys(object).map((item, index) => {
         const label = item[0].toUpperCase() + item.slice(1);
-
+        if (item === "id") return;
         return (
           <FormField
             key={item}

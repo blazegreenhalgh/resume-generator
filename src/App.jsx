@@ -5,6 +5,7 @@ import Container from "./components/Container";
 import PersonalDetailsSection from "./components/PersonalDetailsSection";
 import RepeatableForm from "./components/RepeatableForm";
 import RepeatableSection from "./components/RepeatableSection";
+import Resume from "./components/Resume/Resume";
 
 function App() {
   const [resume, setResume] = useState({
@@ -75,8 +76,8 @@ function App() {
   };
 
   return (
-    <div className="app-wrapper h-full w-full gap-6 grid grid-cols-[1fr_7fr]">
-      <div className="sidebar-wrapper w-full h-full flex items-center">
+    <div className="app-wrapper h-full w-full gap-6 grid grid-cols-[300px_1fr]">
+      <div className="sidebar-wrapper w-full h-full flex items-center overflow-y-auto px-2 no-scrollbar">
         <div className="sidebar flex flex-col gap-2 w-full">
           <Container>
             <PersonalDetailsSection
@@ -106,8 +107,8 @@ function App() {
           </Container>
         </div>
       </div>
-      <div className="resume-wrapper w-full bg-gray-300 h-full">
-        <div className="resume "></div>
+      <div className="resume-wrapper w-full after:absolute after:-top-1/2 after:h-[200vh] after:w-screen after:-z-50 after:bg-gray-300 h-full">
+        <Resume />
       </div>
     </div>
   );
