@@ -1,8 +1,14 @@
 import React from "react";
 import { useState } from "react";
 import RepeatableForm from "../RepeatableForm";
+import Button from "../button";
 
-function Dropdown({ object, arrayPath = "", updateRepeatableForm }) {
+function Dropdown({
+  object,
+  arrayPath = "",
+  updateRepeatableForm,
+  deleteRepeatableForm,
+}) {
   const [isToggled, setIsToggled] = useState(false);
   const title = "New Item";
 
@@ -29,6 +35,11 @@ function Dropdown({ object, arrayPath = "", updateRepeatableForm }) {
             object={object}
             arrayPath={arrayPath}
             updateRepeatableForm={updateRepeatableForm}
+          />
+          <Button
+            type="danger"
+            contents="Delete Row"
+            onClick={(e) => deleteRepeatableForm(arrayPath, object.id)}
           />
         </div>
       ) : null}

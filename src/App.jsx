@@ -15,15 +15,7 @@ function App() {
       address: "",
     },
     experiences: [],
-    educations: [
-      {
-        id: "",
-        school: "",
-        degree: "",
-        startDate: "",
-        endDate: "",
-      },
-    ],
+    educations: [],
   });
 
   const updatePersonal = (path, objectKey, value) => {
@@ -31,16 +23,6 @@ function App() {
       ...prev,
       [path]: { ...prev[path], [objectKey]: value },
     }));
-  };
-
-  const updateRepeatableFormold = (path, index, objectKey, value) => {
-    setResume((prev) => ({
-      ...prev,
-      [path]: prev[path].map((item, i) => {
-        return i === index ? { ...item, [objectKey]: value } : item;
-      }),
-    }));
-    console.log(resume);
   };
 
   const updateRepeatableForm = (path, objectID, objectKey, value) => {
@@ -67,6 +49,26 @@ function App() {
     setResume(newResume);
   };
 
+  const addEducation = (path) => {
+    const newResume = structuredClone(resume);
+
+    newResume[path].push({
+      id: crypto.randomUUID(),
+      school: "",
+      degree: "",
+      startDate: "",
+      endDate: "",
+    });
+    setResume(newResume);
+  };
+
+  const deleteRepeatableForm = (path, objectID) => {
+    const newResume = structuredClone(resume);
+    const index = newResume[path].findIndex((item) => item.id === objectID);
+    newResume[path].splice(index, 1);
+    setResume(newResume);
+  };
+
   return (
     <>
       <h1 className="bg-red-500">hello</h1>
@@ -84,13 +86,17 @@ function App() {
             arrayPath="experiences"
             updateRepeatableForm={updateRepeatableForm}
             addRepeatableForm={addExperience}
+            deleteRepeatableForm={deleteRepeatableForm}
           />
         </Container>
         <Container>
-          <RepeatableForm
-            array={resume.experiences}
-            arrayPath="experiences"
+          <RepeatableSection
+            title="Education"
+            array={resume.educations}
+            arrayPath="educations"
             updateRepeatableForm={updateRepeatableForm}
+            addRepeatableForm={addEducation}
+            deleteRepeatableForm={deleteRepeatableForm}
           />
         </Container>
       </div>

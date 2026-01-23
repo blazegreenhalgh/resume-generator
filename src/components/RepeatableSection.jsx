@@ -8,6 +8,7 @@ function RepeatableSection({
   arrayPath,
   updateRepeatableForm,
   addRepeatableForm,
+  deleteRepeatableForm,
 }) {
   return (
     <>
@@ -19,6 +20,7 @@ function RepeatableSection({
             object={object}
             arrayPath={arrayPath}
             updateRepeatableForm={updateRepeatableForm}
+            deleteRepeatableForm={deleteRepeatableForm}
           />
         ))}
       </div>
