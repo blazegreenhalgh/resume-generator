@@ -30,7 +30,7 @@ function RepeatableSection({
         </div>
         <Button
           type="primary"
-          contents={"New " + arrayPath}
+          contents={"+ " + title}
           onClick={() => addRepeatableForm(arrayPath)}
           classes="w-full"
         />

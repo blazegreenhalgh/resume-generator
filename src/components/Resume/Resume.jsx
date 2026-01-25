@@ -9,13 +9,13 @@ function Resume({ formatting, resume }) {
 
   return (
     <>
-      <div className="resume-wrapper flex items-center justify-center px-8 ">
-        <div className="resume bg-white rounded-xl h-[29.7cm] w-[21cm] drop-shadow-xl overflow-clip">
+      <div className="resume-wrapper flex items-center justify-center">
+        <div className="resume flex aspect-[1/1.414] h-full w-full flex-col items-center overflow-clip rounded-xl bg-white drop-shadow-xl">
           <div
-            className={`header flex flex-col justify-center text-white p-8 gap-2 w-full text-center ${accentColor}`}
+            className={`header flex w-full flex-col justify-center gap-2 p-8 text-center text-white ${accentColor}`}
           >
             <h1 className="text-2xl font-bold">{personal.fullName}</h1>
-            <div className="details flex gap-4 justify-center text-xs">
+            <div className="details flex justify-center gap-4 text-xs">
               <div className="detail flex gap-1">
                 <p>icon</p>
                 <p>{personal.email}</p>
@@ -30,13 +30,13 @@ function Resume({ formatting, resume }) {
               </div>
             </div>
           </div>
-          <div className="body p-8 flex flex-col gap-24">
+          <div className="body flex flex-col gap-24 p-8 md:max-w-11/12">
             {educations.length > 0 && (
               <div className="section flex flex-col gap-2">
                 <div
-                  className={`header w-full flex justify-center ${accentBg}`}
+                  className={`header flex w-full justify-center ${accentBg}`}
                 >
-                  <h1 className="font-semibold ">Education</h1>
+                  <h1 className="font-semibold">Education</h1>
                 </div>
                 <BodyEducationSection
                   accentColor={accentColor}
@@ -47,9 +47,9 @@ function Resume({ formatting, resume }) {
             {experiences.length > 0 && (
               <div className="section flex flex-col gap-2">
                 <div
-                  className={`header w-full flex justify-center ${accentBg}`}
+                  className={`header flex w-full justify-center ${accentBg}`}
                 >
-                  <h1 className="font-semibold ">Experience</h1>
+                  <h1 className="font-semibold">Experience</h1>
                 </div>
                 <BodyExperienceSection
                   accentColor={accentColor}

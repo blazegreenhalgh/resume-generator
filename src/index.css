@@ -1,1 +1,5 @@
 @import "tailwindcss";
+
+.gutter {
+  @apply px-4;
+}

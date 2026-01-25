@@ -97,9 +97,9 @@ function App() {
   };
 
   return (
-    <div className="app-wrapper h-full gap-6 grid grid-cols-[400px_1fr] justify-center items-center w-full ">
-      <div className="sidebar-wrapper w-full h-full flex items-start px-2 max-w-[400px]">
-        <div className="sidebar flex flex-col gap-6 w-full">
+    <div className="app-wrapper gutter grid h-full w-full max-w-[1500px] grid-cols-1 items-center justify-center gap-6 py-12 lg:grid-cols-[minmax(240px,0.5fr)_1fr]">
+      <div className="sidebar-wrapper flex h-full w-full items-start">
+        <div className="sidebar flex w-full flex-col gap-6">
           <Container>
             <PersonalDetailsSection
               personal={resume.personal}
@@ -128,7 +128,7 @@ function App() {
           </Container>
         </div>
       </div>
-      <div className="resume-wrapper w-full h-full">
+      <div className="resume-wrapper h-full w-full">
         <Resume formatting={formatting} resume={resume} />
       </div>
     </div>
