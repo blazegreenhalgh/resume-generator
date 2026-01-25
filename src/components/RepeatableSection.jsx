@@ -1,6 +1,6 @@
 import React from "react";
 import Dropdown from "./Dropdown";
-import Button from "./Button";
+import Button from "./button";
 import { BriefcaseIcon, AcademicCapIcon } from "@heroicons/react/24/solid";
 import { PlusIcon } from "@heroicons/react/24/outline";
 
