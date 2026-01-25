@@ -1,7 +1,34 @@
 import React from "react";
 import Container from "./Container";
 
-function ColorPicker({ colors, setFormatting }) {
+function ColorPicker({ setFormatting }) {
+  const colors = {
+    green: {
+      main: "bg-green-950",
+      background: "bg-green-950/10",
+    },
+    amber: {
+      main: "bg-amber-950",
+      background: "bg-amber-950/10",
+    },
+    red: {
+      main: "bg-red-950",
+      background: "bg-red-950/10",
+    },
+    pink: {
+      main: "bg-pink-950",
+      background: "bg-pink-950/10",
+    },
+    blue: {
+      main: "bg-blue-950",
+      background: "bg-blue-950/10",
+    },
+    purple: {
+      main: "bg-purple-950",
+      background: "bg-purple-950/10",
+    },
+  };
+
   return (
     <Container
       className="sidebar-colours flex flex-col gap-2 px-4 py-4"

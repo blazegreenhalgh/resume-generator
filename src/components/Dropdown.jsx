@@ -2,6 +2,7 @@ import React from "react";
 import { useState, useEffect } from "react";
 import RepeatableForm from "./RepeatableForm";
 import Button from "./button";
+import { ChevronUpIcon, ChevronDownIcon } from "@heroicons/react/24/solid";
 
 function Dropdown({
   object,
@@ -31,9 +32,15 @@ function Dropdown({
           onClick={handleClick}
           className="w-full cursor-pointer after:absolute after:inset-0"
         >
-          <div className="flex w-full flex-row justify-between">
+          <div className="flex w-full flex-row items-center justify-between">
             <h2 className="font-semibold">{title}</h2>
-            <p>{isToggled ? "^" : "V"}</p>
+            <span>
+              {isToggled ? (
+                <ChevronUpIcon className="h-4 w-4" />
+              ) : (
+                <ChevronDownIcon className="h-4 w-4" />
+              )}
+            </span>
           </div>
         </button>
       </div>

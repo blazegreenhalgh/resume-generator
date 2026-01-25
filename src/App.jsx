@@ -7,6 +7,7 @@ import RepeatableForm from "./components/RepeatableForm";
 import RepeatableSection from "./components/RepeatableSection";
 import Resume from "./components/Resume/Resume";
 import ColorPicker from "./components/ColorPicker";
+import LayoutPicker from "./components/LayoutPicker";
 
 function App() {
   const [resume, setResume] = useState({
@@ -43,34 +44,8 @@ function App() {
   const [formatting, setFormatting] = useState({
     accentColor: "bg-green-950",
     backgroundColor: "bg-gray-900",
+    layout: "top",
   });
-
-  const colors = {
-    green: {
-      main: "bg-green-950",
-      background: "bg-green-950/10",
-    },
-    amber: {
-      main: "bg-amber-950",
-      background: "bg-amber-950/10",
-    },
-    red: {
-      main: "bg-red-950",
-      background: "bg-red-950/10",
-    },
-    pink: {
-      main: "bg-pink-950",
-      background: "bg-pink-950/10",
-    },
-    blue: {
-      main: "bg-blue-950",
-      background: "bg-blue-950/10",
-    },
-    purple: {
-      main: "bg-purple-950",
-      background: "bg-purple-950/10",
-    },
-  };
 
   const updatePersonal = (path, objectKey, value) => {
     setResume((prev) => ({
@@ -127,7 +102,10 @@ function App() {
   return (
     <div className="app-wrapper gutter grid h-full w-full max-w-[1500px] grid-cols-1 items-center justify-center gap-6 py-12 lg:grid-cols-[minmax(240px,0.5fr)_1fr]">
       <div className="sidebar-wrapper flex h-full w-full items-start gap-5">
-        <ColorPicker colors={colors} setFormatting={setFormatting} />
+        <div className="pickers flex flex-col gap-4">
+          <LayoutPicker setFormatting={setFormatting} />
+          <ColorPicker setFormatting={setFormatting} />
+        </div>
         <div className="sidebar-main flex w-full flex-col gap-6">
           <Container>
             <PersonalDetailsSection
