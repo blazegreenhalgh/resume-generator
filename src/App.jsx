@@ -44,6 +44,29 @@ function App() {
     backgroundColor: "bg-gray-900",
   });
 
+  const colors = {
+    green: {
+      main: "bg-green-950",
+      background: "bg-green-950/10",
+    },
+    red: {
+      main: "bg-red-950",
+      background: "bg-red-950/10",
+    },
+    blue: {
+      main: "bg-blue-950",
+      background: "bg-blue-950/10",
+    },
+    amber: {
+      main: "bg-amber-950",
+      background: "bg-amber-950/10",
+    },
+    purple: {
+      main: "bg-purple-950",
+      background: "bg-purple-950/10",
+    },
+  };
+
   const updatePersonal = (path, objectKey, value) => {
     setResume((prev) => ({
       ...prev,
@@ -98,8 +121,24 @@ function App() {
 
   return (
     <div className="app-wrapper gutter grid h-full w-full max-w-[1500px] grid-cols-1 items-center justify-center gap-6 py-12 lg:grid-cols-[minmax(240px,0.5fr)_1fr]">
-      <div className="sidebar-wrapper flex h-full w-full items-start">
-        <div className="sidebar flex w-full flex-col gap-6">
+      <div className="sidebar-wrapper flex h-full w-full items-start gap-2">
+        <div className="sidebar-colours mt-2 flex flex-col gap-1">
+          {Object.entries(colors).map(([color, values]) => (
+            <button
+              key={color}
+              data-tooltip={color[0].toUpperCase() + color.slice(1)}
+              className={`swatch ${values.main} relative h-10 w-10 cursor-pointer rounded-xl after:pointer-events-none after:absolute after:top-[calc(100%+1px)] after:left-1/2 after:z-10 after:mb-2 after:-translate-x-1/2 after:rounded after:bg-black after:px-2 after:py-1 after:text-xs after:text-white after:opacity-0 after:content-[attr(data-tooltip)] hover:after:opacity-100`}
+              onClick={() =>
+                setFormatting((prev) => ({
+                  ...prev,
+                  accentColor: values.main,
+                  backgroundColor: values.background,
+                }))
+              }
+            ></button>
+          ))}
+        </div>
+        <div className="sidebar-main flex w-full flex-col gap-6">
           <Container>
             <PersonalDetailsSection
               personal={resume.personal}

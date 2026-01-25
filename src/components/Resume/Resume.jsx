@@ -5,7 +5,7 @@ import BodyExperienceSection from "./BodyExperienceSection";
 function Resume({ formatting, resume }) {
   const { accentColor, backgroundColor } = formatting;
   const { personal, experiences, educations } = resume;
-  const accentBg = accentColor + "/10";
+  const accentBg = accentColor + "/10 ";
 
   return (
     <>
