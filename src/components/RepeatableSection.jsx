@@ -2,6 +2,7 @@ import React from "react";
 import Dropdown from "./Dropdown";
 import Button from "./Button";
 import { BriefcaseIcon, AcademicCapIcon } from "@heroicons/react/24/solid";
+import { PlusIcon } from "@heroicons/react/24/outline";
 
 function RepeatableSection({
   title = "title",
@@ -38,10 +39,12 @@ function RepeatableSection({
         </div>
         <Button
           type="primary"
-          contents={"+ " + title}
           onClick={() => addRepeatableForm(arrayPath)}
-          classes="w-full"
-        />
+          classes="w-full flex justify-center"
+        >
+          <PlusIcon className="h-[1.2em] w-[1.2em] self-center" />
+          {title}
+        </Button>
       </div>
     </>
   );

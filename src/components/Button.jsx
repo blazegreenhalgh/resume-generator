@@ -1,6 +1,6 @@
 import React from "react";
 
-function Button({ type, contents = "Button", onClick, classes }) {
+function Button({ type, onClick, classes, children }) {
   const baseClasses = "w-fit px-4 py-2 rounded-md cursor-pointer text-sm ";
   const typeClasses = {
     primary: "bg-blue-500 hover:bg-blue-600 text-white",
@@ -13,7 +13,7 @@ function Button({ type, contents = "Button", onClick, classes }) {
       className={`${baseClasses} ${typeClasses[type] || typeClasses["neutral"]} ${classes}`}
       onClick={onClick}
     >
-      {contents}
+      <span className="inline-flex justify-center gap-1">{children}</span>
     </button>
   );
 }

@@ -7,13 +7,13 @@ function ColorPicker({ setFormatting }) {
       main: "bg-green-950",
       background: "bg-green-950/10",
     },
-    amber: {
-      main: "bg-amber-950",
-      background: "bg-amber-950/10",
+    slate: {
+      main: "bg-slate-950",
+      background: "bg-slate-950/10",
     },
-    red: {
-      main: "bg-red-950",
-      background: "bg-red-950/10",
+    orange: {
+      main: "bg-orange-950",
+      background: "bg-orange-950/10",
     },
     pink: {
       main: "bg-pink-950",

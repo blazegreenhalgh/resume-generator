@@ -7,7 +7,7 @@ function BodyExperienceSection({ accentColor, group }) {
         {group.map((object) => {
           return (
             <div className="item">
-              <div key={object.id} className="grid grid-cols-[2fr_6fr] gap-12">
+              <div key={object.id} className="grid grid-cols-[1fr_2fr] gap-12">
                 <div className="secondary-info flex flex-col text-black">
                   <div className="flex gap-1">
                     <p>{object.startDate}</p>

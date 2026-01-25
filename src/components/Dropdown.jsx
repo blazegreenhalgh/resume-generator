@@ -2,7 +2,11 @@ import React from "react";
 import { useState, useEffect } from "react";
 import RepeatableForm from "./RepeatableForm";
 import Button from "./button";
-import { ChevronUpIcon, ChevronDownIcon } from "@heroicons/react/24/solid";
+import {
+  ChevronUpIcon,
+  ChevronDownIcon,
+  TrashIcon,
+} from "@heroicons/react/24/solid";
 
 function Dropdown({
   object,
@@ -56,9 +60,11 @@ function Dropdown({
           <div className="button-wrapper flex w-full items-end justify-end pt-4">
             <Button
               type="danger"
-              contents="Delete Row"
               onClick={(e) => deleteRepeatableForm(arrayPath, object.id)}
-            />
+            >
+              <TrashIcon className="h-[1em] w-[1em] self-center" />
+              Delete Row
+            </Button>
           </div>
         </div>
       ) : null}
