@@ -1,10 +1,12 @@
 import React from "react";
 import FormField from "./FormField";
+import { UserCircleIcon } from "@heroicons/react/24/solid";
 
 function PersonalDetailsSection({ personal, updatePersonal }) {
   return (
     <>
-      <h2 className="font-bold text-xl">Personal Details</h2>
+      <UserCircleIcon className="h-7 w-7" />
+      <h2 className="text-xl font-bold">Personal Details</h2>
       {Object.keys(personal).map((item) => {
         const label = item[0].toUpperCase() + item.slice(1);
         return (

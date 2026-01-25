@@ -1,6 +1,7 @@
 import React from "react";
 import Dropdown from "./Dropdown";
 import Button from "./Button";
+import { BriefcaseIcon, AcademicCapIcon } from "@heroicons/react/24/solid";
 
 function RepeatableSection({
   title = "title",
@@ -10,11 +11,18 @@ function RepeatableSection({
   addRepeatableForm,
   deleteRepeatableForm,
 }) {
+  const icon =
+    title === "Experience" ? (
+      <BriefcaseIcon className="h-7 w-7" />
+    ) : (
+      <AcademicCapIcon className="h-7 w-7" />
+    );
   return (
     <>
       <div className="section-wrapper flex flex-col gap-4">
-        <h2 className="font-bold text-xl">{title}</h2>
-        <div className="loop-wrapper w-full flex flex-col gap-4">
+        {icon}
+        <h2 className="text-xl font-bold">{title}</h2>
+        <div className="loop-wrapper flex w-full flex-col gap-2">
           {array.map((object, index) => {
             return (
               <Dropdown
